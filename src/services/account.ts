@@ -22,7 +22,7 @@ export class Account extends Service {
             let path = '/account';
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -77,7 +77,7 @@ export class Account extends Service {
                 payload['name'] = name;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('post', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -120,7 +120,7 @@ export class Account extends Service {
                 payload['password'] = password;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('patch', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -142,7 +142,7 @@ export class Account extends Service {
             let path = '/account/jwt';
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('post', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -166,7 +166,7 @@ export class Account extends Service {
                 payload['queries'] = queries;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -193,7 +193,7 @@ export class Account extends Service {
                 payload['name'] = name;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('patch', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -227,7 +227,7 @@ export class Account extends Service {
                 payload['oldPassword'] = oldPassword;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('patch', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -267,7 +267,7 @@ export class Account extends Service {
                 payload['password'] = password;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('patch', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -285,7 +285,7 @@ export class Account extends Service {
             let path = '/account/prefs';
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -314,7 +314,7 @@ export class Account extends Service {
                 payload['prefs'] = prefs;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('patch', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -357,7 +357,7 @@ export class Account extends Service {
                 payload['url'] = url;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('post', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -419,7 +419,7 @@ export class Account extends Service {
                 payload['passwordAgain'] = passwordAgain;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('put', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -438,7 +438,7 @@ export class Account extends Service {
             let path = '/account/sessions';
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -457,7 +457,7 @@ export class Account extends Service {
             let path = '/account/sessions';
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('delete', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -480,7 +480,7 @@ export class Account extends Service {
             let path = '/account/sessions/anonymous';
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('post', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -520,7 +520,7 @@ export class Account extends Service {
                 payload['password'] = password;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('post', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -574,7 +574,7 @@ export class Account extends Service {
                 payload['url'] = url;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('post', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -620,7 +620,7 @@ export class Account extends Service {
                 payload['secret'] = secret;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('put', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -672,7 +672,7 @@ export class Account extends Service {
                 payload['scopes'] = scopes;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             payload['project'] = this.client.config.project;
 
 
@@ -724,7 +724,7 @@ export class Account extends Service {
                 payload['phone'] = phone;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('post', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -764,7 +764,7 @@ export class Account extends Service {
                 payload['secret'] = secret;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('put', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -788,7 +788,7 @@ export class Account extends Service {
             let path = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -813,7 +813,7 @@ export class Account extends Service {
             let path = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('patch', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -839,7 +839,7 @@ export class Account extends Service {
             let path = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('delete', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -859,7 +859,7 @@ export class Account extends Service {
             let path = '/account/status';
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('patch', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -900,7 +900,7 @@ export class Account extends Service {
                 payload['url'] = url;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('post', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -939,7 +939,7 @@ export class Account extends Service {
                 payload['secret'] = secret;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('put', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -962,7 +962,7 @@ export class Account extends Service {
             let path = '/account/verification/phone';
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('post', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -1001,7 +1001,7 @@ export class Account extends Service {
                 payload['secret'] = secret;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('put', uri, {
                 'content-type': 'application/json',
             }, payload);

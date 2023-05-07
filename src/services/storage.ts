@@ -38,7 +38,7 @@ export class Storage extends Service {
                 payload['search'] = search;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -101,7 +101,7 @@ export class Storage extends Service {
                 payload['permissions'] = permissions;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
 
             if(!(file instanceof File)) {
                 throw new AppwriteException('Parameter "file" has to be a File.');
@@ -126,7 +126,7 @@ export class Storage extends Service {
             const totalCounters = Math.ceil(size / Service.CHUNK_SIZE);
             if(fileId != 'unique()') {
                 try {
-                    response = await this.client.call('GET', new URL(this.client.config.endpoint + path + '/' + fileId), headers);
+                    response = await this.client.call('GET', this.client.config.endpoint + path + '/' + fileId, headers);
                     counter = response.chunksUploaded;
                 } catch(e) {
                 }
@@ -188,7 +188,7 @@ export class Storage extends Service {
             let path = '/storage/buckets/{bucketId}/files/{fileId}'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -222,7 +222,7 @@ export class Storage extends Service {
                 payload['permissions'] = permissions;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('put', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -251,7 +251,7 @@ export class Storage extends Service {
             let path = '/storage/buckets/{bucketId}/files/{fileId}'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('delete', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -281,7 +281,7 @@ export class Storage extends Service {
             let path = '/storage/buckets/{bucketId}/files/{fileId}/download'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             payload['project'] = this.client.config.project;
 
 
@@ -372,7 +372,7 @@ export class Storage extends Service {
                 payload['output'] = output;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             payload['project'] = this.client.config.project;
 
 
@@ -406,7 +406,7 @@ export class Storage extends Service {
             let path = '/storage/buckets/{bucketId}/files/{fileId}/view'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             payload['project'] = this.client.config.project;
 
 

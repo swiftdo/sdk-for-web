@@ -1,5 +1,4 @@
-import 'isomorphic-form-data';
-import { fetch } from 'cross-fetch';
+import un , { UnResponse }from '@uni-helper/uni-network';
 import { Models } from './models';
 import { Service } from './service';
 
@@ -358,81 +357,57 @@ class Client {
         }
     }
 
-    async call(method: string, url: URL, headers: Headers = {}, params: Payload = {}): Promise<any> {
+    async call(method: string, url: string, headers: Headers = {}, params: Payload = {}): Promise<any> {
         method = method.toUpperCase();
-
-
         headers = Object.assign({}, this.headers, headers);
-
-        let options: RequestInit = {
-            method,
-            headers,
-            credentials: 'include'
-        };
-
-        if (typeof window !== 'undefined' && window.localStorage) {
-            headers['X-Fallback-Cookies'] = window.localStorage.getItem('cookieFallback') ?? '';
-        }
-
-        if (method === 'GET') {
-            for (const [key, value] of Object.entries(Service.flatten(params))) {
-                url.searchParams.append(key, value);
-            }
-        } else {
-            switch (headers['content-type']) {
-                case 'application/json':
-                    options.body = JSON.stringify(params);
-                    break;
-
-                case 'multipart/form-data':
-                    let formData = new FormData();
-
-                    for (const key in params) {
-                        if (Array.isArray(params[key])) {
-                            params[key].forEach((value: any) => {
-                                formData.append(key + '[]', value);
-                            })
-                        } else {
-                            formData.append(key, params[key]);
-                        }
-                    }
-
-                    options.body = formData;
-                    delete headers['content-type'];
-                    break;
-            }
-        }
+        headers['X-Fallback-Cookies'] = uni.getStorageSync('cookieFallback') ?? '';
 
         try {
-            let data = null;
-            const response = await fetch(url.toString(), options);
-
-            if (response.headers.get('content-type')?.includes('application/json')) {
-                data = await response.json();
+            if (method === 'GET') {
+                const searchParams: { [key: string]: any } = {};
+                for (const [key, value] of Object.entries(Service.flatten(params))) {
+                    searchParams[key] = value;
+                }
+                const response = await un.get(url, {params: searchParams, headers: headers});
+                return this.handleReponse(response);
             } else {
-                data = {
-                    message: await response.text()
-                };
+                switch (headers['content-type']) {
+                    case 'application/json': {
+                        const response = await un.post(url, {headers: headers, data: params});
+                        return this.handleReponse(response);
+                    }
+                    case 'multipart/form-data': {
+                        const response = await un.post(url, {headers: headers, formData: params});
+                        return this.handleReponse(response);
+                    }
+                }
             }
-
-            if (400 <= response.status) {
-                throw new AppwriteException(data?.message, response.status, data?.type, data);
-            }
-
-            const cookieFallback = response.headers.get('X-Fallback-Cookies');
-
-            if (typeof window !== 'undefined' && window.localStorage && cookieFallback) {
-                window.console.warn('Appwrite is using localStorage for session management. Increase your security by adding a custom domain as your API endpoint.');
-                window.localStorage.setItem('cookieFallback', cookieFallback);
-            }
-
-            return data;
         } catch (e) {
             if (e instanceof AppwriteException) {
                 throw e;
             }
             throw new AppwriteException((<Error>e).message);
         }
+    }
+
+    handleReponse(response: UnResponse) : any {
+        let data = null;
+        if (response?.headers?.get('content-type')?.includes('application/json')) {
+            data = response.data;
+        } else {
+            data = {
+                message: response.data
+            };
+        }
+
+        // if (400 <= (response?.status ?? 200 )) {
+        //     throw new AppwriteException(data?.message, response.status, data?.type, data);
+        // }
+        const cookieFallback = response?.headers?.get('X-Fallback-Cookies');
+        if (cookieFallback) {
+            uni.setStorageSync('cookieFallback', cookieFallback);
+        }
+        return data;
     }
 }
 

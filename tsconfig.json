@@ -17,6 +17,7 @@
         "strict": true,
         "target": "ES6",
         "traceResolution": false,
+        "types": ["@dcloudio/types", "node"]
     },
     "compileOnSave": false,
     "exclude": ["node_modules", "dist"],

@@ -33,7 +33,7 @@ export class Teams extends Service {
                 payload['search'] = search;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -76,7 +76,7 @@ export class Teams extends Service {
                 payload['roles'] = roles;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('post', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -99,7 +99,7 @@ export class Teams extends Service {
             let path = '/teams/{teamId}'.replace('{teamId}', teamId);
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -131,7 +131,7 @@ export class Teams extends Service {
                 payload['name'] = name;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('put', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -155,7 +155,7 @@ export class Teams extends Service {
             let path = '/teams/{teamId}'.replace('{teamId}', teamId);
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('delete', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -189,7 +189,7 @@ export class Teams extends Service {
                 payload['search'] = search;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -270,7 +270,7 @@ export class Teams extends Service {
                 payload['name'] = name;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('post', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -299,7 +299,7 @@ export class Teams extends Service {
             let path = '/teams/{teamId}/memberships/{membershipId}'.replace('{teamId}', teamId).replace('{membershipId}', membershipId);
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -338,7 +338,7 @@ export class Teams extends Service {
                 payload['roles'] = roles;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('patch', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -368,7 +368,7 @@ export class Teams extends Service {
             let path = '/teams/{teamId}/memberships/{membershipId}'.replace('{teamId}', teamId).replace('{membershipId}', membershipId);
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('delete', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -420,7 +420,7 @@ export class Teams extends Service {
                 payload['secret'] = secret;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('patch', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -445,7 +445,7 @@ export class Teams extends Service {
             let path = '/teams/{teamId}/prefs'.replace('{teamId}', teamId);
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -479,7 +479,7 @@ export class Teams extends Service {
                 payload['prefs'] = prefs;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('put', uri, {
                 'content-type': 'application/json',
             }, payload);

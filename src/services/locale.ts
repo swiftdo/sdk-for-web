@@ -27,7 +27,7 @@ export class Locale extends Service {
             let path = '/locale';
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -46,7 +46,7 @@ export class Locale extends Service {
             let path = '/locale/continents';
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -65,7 +65,7 @@ export class Locale extends Service {
             let path = '/locale/countries';
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -84,7 +84,7 @@ export class Locale extends Service {
             let path = '/locale/countries/eu';
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -103,7 +103,7 @@ export class Locale extends Service {
             let path = '/locale/countries/phones';
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -123,7 +123,7 @@ export class Locale extends Service {
             let path = '/locale/currencies';
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -142,7 +142,7 @@ export class Locale extends Service {
             let path = '/locale/languages';
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);

@@ -38,7 +38,7 @@ export class Databases extends Service {
                 payload['queries'] = queries;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -92,7 +92,7 @@ export class Databases extends Service {
                 payload['permissions'] = permissions;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('post', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -131,7 +131,7 @@ export class Databases extends Service {
                 payload['queries'] = queries;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('get', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -175,7 +175,7 @@ export class Databases extends Service {
                 payload['permissions'] = permissions;
             }
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('patch', uri, {
                 'content-type': 'application/json',
             }, payload);
@@ -208,7 +208,7 @@ export class Databases extends Service {
             let path = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
             let payload: Payload = {};
 
-            const uri = new URL(this.client.config.endpoint + path);
+            const uri = this.client.config.endpoint + path;
             return await this.client.call('delete', uri, {
                 'content-type': 'application/json',
             }, payload);

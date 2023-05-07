@@ -346,6 +346,7 @@
                 method = method.toUpperCase();
                 headers = Object.assign({}, this.headers, headers);
                 headers['X-Fallback-Cookies'] = (_a = uni.getStorageSync('cookieFallback')) !== null && _a !== void 0 ? _a : '';
+                console.log("${method} - ${url} - ${headers} - ${params}");
                 try {
                     if (method === 'GET') {
                         const searchParams = {};
@@ -379,6 +380,7 @@
         handleReponse(response) {
             var _a, _b, _c;
             let data = null;
+            console.log(response);
             if ((_b = (_a = response === null || response === void 0 ? void 0 : response.headers) === null || _a === void 0 ? void 0 : _a.get('content-type')) === null || _b === void 0 ? void 0 : _b.includes('application/json')) {
                 data = response.data;
             }

@@ -362,6 +362,8 @@ class Client {
         headers = Object.assign({}, this.headers, headers);
         headers['X-Fallback-Cookies'] = uni.getStorageSync('cookieFallback') ?? '';
 
+        console.log("${method} - ${url} - ${headers} - ${params}");
+
         try {
             if (method === 'GET') {
                 const searchParams: { [key: string]: any } = {};
@@ -392,6 +394,7 @@ class Client {
 
     handleReponse(response: UnResponse) : any {
         let data = null;
+        console.log(response);
         if (response?.headers?.get('content-type')?.includes('application/json')) {
             data = response.data;
         } else {

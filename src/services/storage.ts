@@ -2,6 +2,7 @@ import { Service } from '../service';
 import { AppwriteException, Client } from '../client';
 import type { Models } from '../models';
 import type { UploadProgress, Payload } from '../client';
+import { urlAppendQueryParams } from 'help';
 
 export class Storage extends Service {
 
@@ -269,7 +270,7 @@ export class Storage extends Service {
          * @throws {AppwriteException}
          * @returns {URL}
          */
-        getFileDownload(bucketId: string, fileId: string): URL {
+        getFileDownload(bucketId: string, fileId: string): string {
             if (typeof bucketId === 'undefined') {
                 throw new AppwriteException('Missing required parameter: "bucketId"');
             }
@@ -281,13 +282,9 @@ export class Storage extends Service {
             let path = '/storage/buckets/{bucketId}/files/{fileId}/download'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
             let payload: Payload = {};
 
-            const uri = this.client.config.endpoint + path;
+            var uri = this.client.config.endpoint + path;
             payload['project'] = this.client.config.project;
-
-
-            for (const [key, value] of Object.entries(Service.flatten(payload))) {
-                uri.searchParams.append(key, value);
-            }
+            uri = urlAppendQueryParams(uri, payload);
             return uri;
         }
 
@@ -316,7 +313,7 @@ export class Storage extends Service {
          * @throws {AppwriteException}
          * @returns {URL}
          */
-        getFilePreview(bucketId: string, fileId: string, width?: number, height?: number, gravity?: string, quality?: number, borderWidth?: number, borderColor?: string, borderRadius?: number, opacity?: number, rotation?: number, background?: string, output?: string): URL {
+        getFilePreview(bucketId: string, fileId: string, width?: number, height?: number, gravity?: string, quality?: number, borderWidth?: number, borderColor?: string, borderRadius?: number, opacity?: number, rotation?: number, background?: string, output?: string): string {
             if (typeof bucketId === 'undefined') {
                 throw new AppwriteException('Missing required parameter: "bucketId"');
             }
@@ -372,13 +369,9 @@ export class Storage extends Service {
                 payload['output'] = output;
             }
 
-            const uri = this.client.config.endpoint + path;
+            var uri = this.client.config.endpoint + path;
             payload['project'] = this.client.config.project;
-
-
-            for (const [key, value] of Object.entries(Service.flatten(payload))) {
-                uri.searchParams.append(key, value);
-            }
+            uri = urlAppendQueryParams(uri, payload);
             return uri;
         }
 
@@ -394,7 +387,7 @@ export class Storage extends Service {
          * @throws {AppwriteException}
          * @returns {URL}
          */
-        getFileView(bucketId: string, fileId: string): URL {
+        getFileView(bucketId: string, fileId: string): string {
             if (typeof bucketId === 'undefined') {
                 throw new AppwriteException('Missing required parameter: "bucketId"');
             }
@@ -406,13 +399,9 @@ export class Storage extends Service {
             let path = '/storage/buckets/{bucketId}/files/{fileId}/view'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
             let payload: Payload = {};
 
-            const uri = this.client.config.endpoint + path;
+            var uri = this.client.config.endpoint + path;
             payload['project'] = this.client.config.project;
-
-
-            for (const [key, value] of Object.entries(Service.flatten(payload))) {
-                uri.searchParams.append(key, value);
-            }
+            uri = urlAppendQueryParams(uri, payload);
             return uri;
         }
 };

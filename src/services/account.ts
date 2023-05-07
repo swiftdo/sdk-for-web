@@ -2,6 +2,7 @@ import { Service } from '../service';
 import { AppwriteException, Client } from '../client';
 import type { Models } from '../models';
 import type { UploadProgress, Payload } from '../client';
+import { urlAppendQueryParams } from 'help';
 
 export class Account extends Service {
 
@@ -652,7 +653,7 @@ export class Account extends Service {
          * @throws {AppwriteException}
          * @returns {void|string}
          */
-        createOAuth2Session(provider: string, success?: string, failure?: string, scopes?: string[]): void | URL {
+        createOAuth2Session(provider: string, success?: string, failure?: string, scopes?: string[]): void | string {
             if (typeof provider === 'undefined') {
                 throw new AppwriteException('Missing required parameter: "provider"');
             }
@@ -672,15 +673,13 @@ export class Account extends Service {
                 payload['scopes'] = scopes;
             }
 
-            const uri = this.client.config.endpoint + path;
+            var uri: string = this.client.config.endpoint + path;
             payload['project'] = this.client.config.project;
 
-
-            for (const [key, value] of Object.entries(Service.flatten(payload))) {
-                uri.searchParams.append(key, value);
-            }
+            uri = urlAppendQueryParams(uri, payload);
+            
             if (typeof window !== 'undefined' && window?.location) {
-                window.location.href = uri.toString();
+                window.location.href = uri;
             } else {
                 return uri;
             }

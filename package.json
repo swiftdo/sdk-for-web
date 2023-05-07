@@ -33,7 +33,6 @@
   },
   "dependencies": {
     "@dcloudio/types": "^3.3.3",
-    "@dcloudio/vite-plugin-uni": "^3.0.0-alpha-3000020210521001",
     "@uni-helper/uni-network": "^0.15.0"
   },
   "jsdelivr": "dist/iife/sdk.js",

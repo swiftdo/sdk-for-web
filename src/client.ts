@@ -362,7 +362,9 @@ class Client {
         headers = Object.assign({}, this.headers, headers);
         headers['X-Fallback-Cookies'] = uni.getStorageSync('cookieFallback') ?? '';
 
-        console.log(`${method} - ${url} - ${headers} - ${params}`);
+        console.log(`${method} - ${url}`);
+        console.log(headers);
+        console.log(params);
 
         try {
             if (method === 'GET') {
@@ -395,7 +397,7 @@ class Client {
     handleReponse(response: UnResponse) : any {
         let data = null;
         console.log(response);
-        if (response?.headers?.get('content-type')?.includes('application/json')) {
+        if (response.headers?.get('content-type')?.includes('application/json')) {
             data = response.data;
         } else {
             data = {
@@ -403,9 +405,9 @@ class Client {
             };
         }
 
-        // if (400 <= (response?.status ?? 200 )) {
-        //     throw new AppwriteException(data?.message, response.status, data?.type, data);
-        // }
+        if (400 <= (response?.status ?? 200 )) {
+            throw new AppwriteException((data as any).message ?? '', response.status, (data as any).type, `${data}`);
+        }
         const cookieFallback = response?.headers?.get('X-Fallback-Cookies');
         if (cookieFallback) {
             uni.setStorageSync('cookieFallback', cookieFallback);

@@ -346,7 +346,9 @@
                 method = method.toUpperCase();
                 headers = Object.assign({}, this.headers, headers);
                 headers['X-Fallback-Cookies'] = (_a = uni.getStorageSync('cookieFallback')) !== null && _a !== void 0 ? _a : '';
-                console.log(`${method} - ${url} - ${headers} - ${params}`);
+                console.log(`${method} - ${url}`);
+                console.log(headers);
+                console.log(params);
                 try {
                     if (method === 'GET') {
                         const searchParams = {};
@@ -378,10 +380,10 @@
             });
         }
         handleReponse(response) {
-            var _a, _b, _c;
+            var _a, _b, _c, _d, _e;
             let data = null;
             console.log(response);
-            if ((_b = (_a = response === null || response === void 0 ? void 0 : response.headers) === null || _a === void 0 ? void 0 : _a.get('content-type')) === null || _b === void 0 ? void 0 : _b.includes('application/json')) {
+            if ((_b = (_a = response.headers) === null || _a === void 0 ? void 0 : _a.get('content-type')) === null || _b === void 0 ? void 0 : _b.includes('application/json')) {
                 data = response.data;
             }
             else {
@@ -389,10 +391,10 @@
                     message: response.data
                 };
             }
-            // if (400 <= (response?.status ?? 200 )) {
-            //     throw new AppwriteException(data?.message, response.status, data?.type, data);
-            // }
-            const cookieFallback = (_c = response === null || response === void 0 ? void 0 : response.headers) === null || _c === void 0 ? void 0 : _c.get('X-Fallback-Cookies');
+            if (400 <= ((_c = response === null || response === void 0 ? void 0 : response.status) !== null && _c !== void 0 ? _c : 200)) {
+                throw new AppwriteException((_d = data.message) !== null && _d !== void 0 ? _d : '', response.status, data.type, `${data}`);
+            }
+            const cookieFallback = (_e = response === null || response === void 0 ? void 0 : response.headers) === null || _e === void 0 ? void 0 : _e.get('X-Fallback-Cookies');
             if (cookieFallback) {
                 uni.setStorageSync('cookieFallback', cookieFallback);
             }

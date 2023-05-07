@@ -1,3 +1,9 @@
+给 uni-app 做了下适配，安装：
+
+```sh
+npm install git+git@github.com:swiftdo/sdk-for-web.git
+```
+
 # Appwrite Web SDK
 
 ![License](https://img.shields.io/github/license/appwrite/sdk-for-web.svg?style=flat-square)

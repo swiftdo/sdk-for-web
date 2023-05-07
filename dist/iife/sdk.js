@@ -380,21 +380,11 @@
             });
         }
         handleReponse(response) {
-            var _a, _b, _c, _d, _e;
             let data = null;
             console.log(response);
-            if ((_b = (_a = response.headers) === null || _a === void 0 ? void 0 : _a.get('content-type')) === null || _b === void 0 ? void 0 : _b.includes('application/json')) {
-                data = response.data;
-            }
-            else {
-                data = {
-                    message: response.data
-                };
-            }
-            if (400 <= ((_c = response === null || response === void 0 ? void 0 : response.status) !== null && _c !== void 0 ? _c : 200)) {
-                throw new AppwriteException((_d = data.message) !== null && _d !== void 0 ? _d : '', response.status, data.type, `${data}`);
-            }
-            const cookieFallback = (_e = response === null || response === void 0 ? void 0 : response.headers) === null || _e === void 0 ? void 0 : _e.get('X-Fallback-Cookies');
+            data = response.data;
+            console.log(response.headers);
+            const cookieFallback = (response === null || response === void 0 ? void 0 : response.headers)['X-Fallback-Cookies'];
             if (cookieFallback) {
                 uni.setStorageSync('cookieFallback', cookieFallback);
             }

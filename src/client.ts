@@ -397,18 +397,13 @@ class Client {
     handleReponse(response: UnResponse) : any {
         let data = null;
         console.log(response);
-        if (response.headers?.get('content-type')?.includes('application/json')) {
-            data = response.data;
-        } else {
-            data = {
-                message: response.data
-            };
-        }
+        data = response.data;
 
-        if (400 <= (response?.status ?? 200 )) {
-            throw new AppwriteException((data as any).message ?? '', response.status, (data as any).type, `${data}`);
-        }
-        const cookieFallback = response?.headers?.get('X-Fallback-Cookies');
+        console.log(response.headers);
+        const cookieFallback = (response?.headers as {
+            [x: string]: any
+        })['X-Fallback-Cookies'];
+
         if (cookieFallback) {
             uni.setStorageSync('cookieFallback', cookieFallback);
         }

@@ -362,7 +362,7 @@ class Client {
         headers = Object.assign({}, this.headers, headers);
         headers['X-Fallback-Cookies'] = uni.getStorageSync('cookieFallback') ?? '';
 
-        console.log("${method} - ${url} - ${headers} - ${params}");
+        console.log(`${method} - ${url} - ${headers} - ${params}`);
 
         try {
             if (method === 'GET') {

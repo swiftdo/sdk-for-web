@@ -341,7 +341,7 @@ class Client {
             method = method.toUpperCase();
             headers = Object.assign({}, this.headers, headers);
             headers['X-Fallback-Cookies'] = (_a = uni.getStorageSync('cookieFallback')) !== null && _a !== void 0 ? _a : '';
-            console.log("${method} - ${url} - ${headers} - ${params}");
+            console.log(`${method} - ${url} - ${headers} - ${params}`);
             try {
                 if (method === 'GET') {
                     const searchParams = {};

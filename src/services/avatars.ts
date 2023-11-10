@@ -51,7 +51,8 @@ export class Avatars extends Service {
             payload['quality'] = quality;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         payload['project'] = this.client.config.project;
 
 
@@ -101,7 +102,8 @@ export class Avatars extends Service {
             payload['quality'] = quality;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         payload['project'] = this.client.config.project;
 
 
@@ -134,7 +136,8 @@ export class Avatars extends Service {
             payload['url'] = url;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         payload['project'] = this.client.config.project;
 
 
@@ -185,7 +188,8 @@ export class Avatars extends Service {
             payload['quality'] = quality;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         payload['project'] = this.client.config.project;
 
 
@@ -235,7 +239,8 @@ export class Avatars extends Service {
             payload['height'] = height;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         payload['project'] = this.client.config.project;
 
 
@@ -292,7 +297,8 @@ export class Avatars extends Service {
             payload['background'] = background;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         payload['project'] = this.client.config.project;
 
 
@@ -340,7 +346,8 @@ export class Avatars extends Service {
             payload['download'] = download;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         payload['project'] = this.client.config.project;
 
 

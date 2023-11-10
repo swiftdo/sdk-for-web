@@ -27,7 +27,8 @@ export class Locale extends Service {
         const apiPath = '/locale';
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('get', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -46,7 +47,8 @@ export class Locale extends Service {
         const apiPath = '/locale/codes';
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('get', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -65,7 +67,8 @@ export class Locale extends Service {
         const apiPath = '/locale/continents';
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('get', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -84,7 +87,8 @@ export class Locale extends Service {
         const apiPath = '/locale/countries';
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('get', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -103,7 +107,8 @@ export class Locale extends Service {
         const apiPath = '/locale/countries/eu';
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('get', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -122,7 +127,8 @@ export class Locale extends Service {
         const apiPath = '/locale/countries/phones';
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('get', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -142,7 +148,8 @@ export class Locale extends Service {
         const apiPath = '/locale/currencies';
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('get', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -161,7 +168,8 @@ export class Locale extends Service {
         const apiPath = '/locale/languages';
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('get', uri, {
             'content-type': 'application/json',
         }, payload);

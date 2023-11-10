@@ -23,7 +23,8 @@ export class Account extends Service {
         const apiPath = '/account';
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('get', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -78,7 +79,8 @@ export class Account extends Service {
             payload['name'] = name;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('post', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -121,7 +123,8 @@ export class Account extends Service {
             payload['password'] = password;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('patch', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -144,7 +147,8 @@ export class Account extends Service {
             payload['queries'] = queries;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('get', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -167,7 +171,8 @@ export class Account extends Service {
         const apiPath = '/account/identities/{identityId}'.replace('{identityId}', identityId);
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('delete', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -189,7 +194,8 @@ export class Account extends Service {
         const apiPath = '/account/jwt';
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('post', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -213,7 +219,8 @@ export class Account extends Service {
             payload['queries'] = queries;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('get', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -240,7 +247,8 @@ export class Account extends Service {
             payload['name'] = name;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('patch', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -274,7 +282,8 @@ export class Account extends Service {
             payload['oldPassword'] = oldPassword;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('patch', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -314,7 +323,8 @@ export class Account extends Service {
             payload['password'] = password;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('patch', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -332,7 +342,8 @@ export class Account extends Service {
         const apiPath = '/account/prefs';
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('get', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -361,7 +372,8 @@ export class Account extends Service {
             payload['prefs'] = prefs;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('patch', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -404,7 +416,8 @@ export class Account extends Service {
             payload['url'] = url;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('post', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -466,7 +479,8 @@ export class Account extends Service {
             payload['passwordAgain'] = passwordAgain;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('put', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -485,7 +499,8 @@ export class Account extends Service {
         const apiPath = '/account/sessions';
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('get', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -504,7 +519,8 @@ export class Account extends Service {
         const apiPath = '/account/sessions';
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('delete', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -527,7 +543,8 @@ export class Account extends Service {
         const apiPath = '/account/sessions/anonymous';
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('post', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -567,7 +584,8 @@ export class Account extends Service {
             payload['password'] = password;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('post', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -622,7 +640,8 @@ export class Account extends Service {
             payload['url'] = url;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('post', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -668,7 +687,8 @@ export class Account extends Service {
             payload['secret'] = secret;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('put', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -720,7 +740,8 @@ export class Account extends Service {
             payload['scopes'] = scopes;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         payload['project'] = this.client.config.project;
 
 
@@ -772,7 +793,8 @@ export class Account extends Service {
             payload['phone'] = phone;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('post', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -812,7 +834,8 @@ export class Account extends Service {
             payload['secret'] = secret;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('put', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -836,7 +859,8 @@ export class Account extends Service {
         const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('get', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -861,7 +885,8 @@ export class Account extends Service {
         const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('patch', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -887,7 +912,8 @@ export class Account extends Service {
         const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('delete', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -907,7 +933,8 @@ export class Account extends Service {
         const apiPath = '/account/status';
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('patch', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -948,7 +975,8 @@ export class Account extends Service {
             payload['url'] = url;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('post', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -987,7 +1015,8 @@ export class Account extends Service {
             payload['secret'] = secret;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('put', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -1010,7 +1039,8 @@ export class Account extends Service {
         const apiPath = '/account/verification/phone';
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('post', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -1049,7 +1079,8 @@ export class Account extends Service {
             payload['secret'] = secret;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('put', uri, {
             'content-type': 'application/json',
         }, payload);

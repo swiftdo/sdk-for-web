@@ -39,7 +39,8 @@ export class Storage extends Service {
             payload['search'] = search;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('get', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -102,7 +103,8 @@ export class Storage extends Service {
             payload['permissions'] = permissions;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
 
         if(!(file instanceof File)) {
             throw new AppwriteException('Parameter "file" has to be a File.');
@@ -179,7 +181,8 @@ export class Storage extends Service {
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('get', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -218,7 +221,8 @@ export class Storage extends Service {
             payload['permissions'] = permissions;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('put', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -247,7 +251,8 @@ export class Storage extends Service {
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('delete', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -277,7 +282,8 @@ export class Storage extends Service {
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}/download'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         payload['project'] = this.client.config.project;
 
 
@@ -368,7 +374,8 @@ export class Storage extends Service {
             payload['output'] = output;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         payload['project'] = this.client.config.project;
 
 
@@ -402,7 +409,8 @@ export class Storage extends Service {
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}/view'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         payload['project'] = this.client.config.project;
 
 

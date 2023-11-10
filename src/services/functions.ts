@@ -38,7 +38,8 @@ export class Functions extends Service {
             payload['search'] = search;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('get', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -89,7 +90,8 @@ export class Functions extends Service {
             payload['headers'] = headers;
         }
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('post', uri, {
             'content-type': 'application/json',
         }, payload);
@@ -117,7 +119,8 @@ export class Functions extends Service {
         const apiPath = '/functions/{functionId}/executions/{executionId}'.replace('{functionId}', functionId).replace('{executionId}', executionId);
         const payload: Payload = {};
 
-        const uri = new URL(this.client.config.endpoint + apiPath);
+        var uri = this.client.config.endpoint + apiPath;
+
         return await this.client.call('get', uri, {
             'content-type': 'application/json',
         }, payload);

@@ -31,7 +31,7 @@ export class Avatars extends Service {
      * @throws {AppwriteException}
      * @returns {URL}
     */
-    getBrowser(code: string, width?: number, height?: number, quality?: number): URL {
+    getBrowser(code: string, width?: number, height?: number, quality?: number): string {
         if (typeof code === 'undefined') {
             throw new AppwriteException('Missing required parameter: "code"');
         }
@@ -54,11 +54,7 @@ export class Avatars extends Service {
         var uri = this.client.config.endpoint + apiPath;
 
         payload['project'] = this.client.config.project;
-
-
-        for (const [key, value] of Object.entries(Service.flatten(payload))) {
-            uri.searchParams.append(key, value);
-        }
+        uri = urlAppendQueryParams(uri, payload);
         return uri;
     }
 
@@ -82,7 +78,7 @@ export class Avatars extends Service {
      * @throws {AppwriteException}
      * @returns {URL}
     */
-    getCreditCard(code: string, width?: number, height?: number, quality?: number): URL {
+    getCreditCard(code: string, width?: number, height?: number, quality?: number): string {
         if (typeof code === 'undefined') {
             throw new AppwriteException('Missing required parameter: "code"');
         }
@@ -107,9 +103,7 @@ export class Avatars extends Service {
         payload['project'] = this.client.config.project;
 
 
-        for (const [key, value] of Object.entries(Service.flatten(payload))) {
-            uri.searchParams.append(key, value);
-        }
+        uri = urlAppendQueryParams(uri, payload);
         return uri;
     }
 
@@ -124,7 +118,7 @@ export class Avatars extends Service {
      * @throws {AppwriteException}
      * @returns {URL}
     */
-    getFavicon(url: string): URL {
+    getFavicon(url: string): string {
         if (typeof url === 'undefined') {
             throw new AppwriteException('Missing required parameter: "url"');
         }
@@ -141,9 +135,7 @@ export class Avatars extends Service {
         payload['project'] = this.client.config.project;
 
 
-        for (const [key, value] of Object.entries(Service.flatten(payload))) {
-            uri.searchParams.append(key, value);
-        }
+        uri = urlAppendQueryParams(uri, payload);
         return uri;
     }
 
@@ -168,7 +160,7 @@ export class Avatars extends Service {
      * @throws {AppwriteException}
      * @returns {URL}
     */
-    getFlag(code: string, width?: number, height?: number, quality?: number): URL {
+    getFlag(code: string, width?: number, height?: number, quality?: number): string {
         if (typeof code === 'undefined') {
             throw new AppwriteException('Missing required parameter: "code"');
         }
@@ -193,9 +185,7 @@ export class Avatars extends Service {
         payload['project'] = this.client.config.project;
 
 
-        for (const [key, value] of Object.entries(Service.flatten(payload))) {
-            uri.searchParams.append(key, value);
-        }
+        uri = urlAppendQueryParams(uri, payload);
         return uri;
     }
 
@@ -219,7 +209,7 @@ export class Avatars extends Service {
      * @throws {AppwriteException}
      * @returns {URL}
     */
-    getImage(url: string, width?: number, height?: number): URL {
+    getImage(url: string, width?: number, height?: number): string {
         if (typeof url === 'undefined') {
             throw new AppwriteException('Missing required parameter: "url"');
         }
@@ -244,9 +234,7 @@ export class Avatars extends Service {
         payload['project'] = this.client.config.project;
 
 
-        for (const [key, value] of Object.entries(Service.flatten(payload))) {
-            uri.searchParams.append(key, value);
-        }
+        uri = urlAppendQueryParams(uri, payload);
         return uri;
     }
 
@@ -277,7 +265,7 @@ export class Avatars extends Service {
      * @throws {AppwriteException}
      * @returns {URL}
     */
-    getInitials(name?: string, width?: number, height?: number, background?: string): URL {
+    getInitials(name?: string, width?: number, height?: number, background?: string): string {
         const apiPath = '/avatars/initials';
         const payload: Payload = {};
 
@@ -302,9 +290,7 @@ export class Avatars extends Service {
         payload['project'] = this.client.config.project;
 
 
-        for (const [key, value] of Object.entries(Service.flatten(payload))) {
-            uri.searchParams.append(key, value);
-        }
+        uri = urlAppendQueryParams(uri, payload);
         return uri;
     }
 
@@ -322,7 +308,7 @@ export class Avatars extends Service {
      * @throws {AppwriteException}
      * @returns {URL}
     */
-    getQR(text: string, size?: number, margin?: number, download?: boolean): URL {
+    getQR(text: string, size?: number, margin?: number, download?: boolean): string {
         if (typeof text === 'undefined') {
             throw new AppwriteException('Missing required parameter: "text"');
         }
@@ -351,9 +337,7 @@ export class Avatars extends Service {
         payload['project'] = this.client.config.project;
 
 
-        for (const [key, value] of Object.entries(Service.flatten(payload))) {
-            uri.searchParams.append(key, value);
-        }
+        uri = urlAppendQueryParams(uri, payload);
         return uri;
     }
 };

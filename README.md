@@ -1,7 +1,7 @@
 给 uni-app 做了下适配，安装：
 
 ```sh
-npm install git+git@github.com:swiftdo/sdk-for-web.git
+npm install git+git@github.com:swiftdo/sdk-for-web.git#mini
 ```
 
 # Appwrite Web SDK
